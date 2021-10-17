@@ -1,6 +1,7 @@
 package mine.leakcanary
 
 import android.app.Application
+import android.app.Dialog
 import android.view.View
 import curtains.Curtains
 import curtains.OnRootViewsChangedListener
@@ -14,6 +15,13 @@ import leakcanary.RootViewWatcher
 class TheApplication : Application() {
 
     val list = mutableListOf<View>()
+    companion object{
+        @JvmStatic val cList = mutableListOf<Int>()
+        @JvmStatic val sList = mutableListOf<String>()
+        @JvmStatic val vList = mutableListOf<View>()
+        @JvmStatic val vDialog = mutableListOf<Dialog>()
+        @JvmField val hList = hashMapOf<String, Int>()
+    }
 
     override fun onCreate() {
         super.onCreate()

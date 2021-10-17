@@ -26,48 +26,24 @@ public class MainActivity extends AppCompatActivity {
     public void start(View view) {
         System.out.println("~~start~~");
 
-//        startActivity(new Intent(this, OneActivity.class));
+        startActivity(new Intent(this, OneActivity.class));
+//        startActivity(new Intent(this, TwoActivity.class));
 //        startService(new Intent(this, TheService.class));
 
-        startDialog();
-
-
     }
 
-    private void startDialog() {
 
-        boolean[] booleans = {false, true, false, true};
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        AlertDialog alertDialog = builder
-//                .setCustomTitle("header")
-//                .setMultiChoiceItems(R.array.dialogs, booleans,
-//                        new DialogInterface.OnMultiChoiceClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-//                                System.out.println("dialog is " + dialog);
-//                                System.out.println("which is " + which);
-//                                System.out.println("isChecked is " + isChecked);
-//                            }
-//                        })
-//                .setView(R.layout.dialog_bottom)
-                .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-//                        finish();
-                        System.out.println("~~positive~~");
-                    }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        System.out.println("id is " + id);
-                        System.out.println("~~negative~~");
-                        dialog.cancel();
-                    }
-                })
-                .show();
-
+    @Override
+    protected void onPause() {
+        System.out.println("~~" + getClass().getSimpleName() + ".onPause~~");
+        super.onPause();
     }
 
+    @Override
+    protected void onStop() {
+        System.out.println("~~" + getClass().getSimpleName() + ".onStop~~");
+        super.onStop();
+    }
 
     public void stop(View view) {
         System.out.println("~~stop~~");
